@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ClientService {
-    public Client createClient(Client client);
+    public Boolean createClient(Client client);
     public Boolean deleteClient(int id);
     public Optional<Client> findById(int id);
     public List<Client> findAll();

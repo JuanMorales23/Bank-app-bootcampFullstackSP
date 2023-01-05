@@ -16,10 +16,9 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotNull
-    @NotBlank
     private String idType;
     @NotNull
-    @NotBlank
+    @Column(unique = true)
     private Integer idNumber;
     @NotNull
     @NotBlank
@@ -32,13 +31,11 @@ public class Client {
     private String email;
     private Date birthDate;
     @NotNull
-    @NotBlank
     private Date creationDate;
     @NotNull
     @NotBlank
     private String userCreation;
     @NotNull
-    @NotBlank
     private Date modificationDate;
     @NotNull
     @NotBlank

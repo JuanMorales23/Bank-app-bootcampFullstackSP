@@ -16,8 +16,12 @@ public class ClientController {
     @Autowired
     ClientService clientService;
     @PostMapping
-    public ResponseEntity<Client> createClient(@RequestBody Client client){
-        return new ResponseEntity<>(clientService.createClient(client), HttpStatus.CREATED);
+    public ResponseEntity<String> createClient(@RequestBody Client client){
+        if(clientService.createClient(client)){
+            return new ResponseEntity<>("Usuario creado", HttpStatus.CREATED);
+        }else{
+            return new ResponseEntity<>("No fue posible crear el usuario", HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping

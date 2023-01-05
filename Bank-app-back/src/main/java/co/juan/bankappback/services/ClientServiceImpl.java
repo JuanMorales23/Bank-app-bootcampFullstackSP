@@ -5,6 +5,9 @@ import co.juan.bankappback.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,8 +17,16 @@ public class ClientServiceImpl implements ClientService{
     ClientRepository clientRepository;
 
     @Override
-    public Client createClient(Client client) {
-        return clientRepository.save(client);
+    public Boolean createClient(Client client) {
+        LocalDate currentDate = LocalDate.now();
+        LocalDate birthDate = client.getBirthDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        Period age = Period.between(birthDate, currentDate);
+        if(age.getYears()>18){
+            clientRepository.save(client);
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override
