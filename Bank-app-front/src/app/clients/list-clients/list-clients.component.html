@@ -1,0 +1,22 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>email</td>
+            <td>Detalles cliente</td>
+            <td>Detalles Usuario</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let client of clients">
+            <td>{{client.id}}</td>
+            <td>{{client.firstName}}</td>
+            <td>{{client.lastName}}</td>
+            <td>{{client.email}}</td>
+            <td><button class="btn btn-success"></button></td>
+            <td><button class="btn btn-success"></button></td>
+        </tr>
+    </tbody>
+</table>
