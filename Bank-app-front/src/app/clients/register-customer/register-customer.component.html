@@ -1,0 +1,84 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="idType" class="form-label">Tipo de documento</label>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Seleccione su tipo de documento</option>
+            <option value="RC">Registro civil de nacimiento</option>
+            <option value="TI">Tarjeta de identidad </option>
+            <option value="CC">Cédula de ciudadanía</option>
+            <option value="TE">Tarjeta de extranjería</option>
+            <option value="CE">Cédula de extranjería</option>
+            <option value="NIT">NIT</option>
+            <option value="Pasaporte">Pasaporte</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="idNumber" class="form-label">Número de identificación</label>
+        <input type="Number" class="form-control" id="idNumber">
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="mb-3">
+                <label for="firstName" class="form-label">Primer nombre</label>
+                <input type="text" class="form-control" id="firstName">
+            </div>
+        </div>
+        <div class="col">
+            <div class="mb-3">
+                <label for="middleName" class="form-label">Segundo nombre</label>
+                <input type="text" class="form-control" id="middleName" >
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Primer apellido</label>
+                <input type="text" class="form-control" id="lastName" >
+            </div>
+        </div>
+        <div class="col">
+            <div class="mb-3">
+                <label for="secondLastName" class="form-label">Segundo apellido</label>
+                <input type="text" class="form-control" id="secondLastName">
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" >
+    </div>
+    <div class="mb-3">
+        <label for="birthDate" class="form-label">Fecha de nacimiento</label>
+        <input type="date" id="birthDate" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="mb-3">
+                <label for="userCreation" class="form-label">Usuario creación</label>
+                <input type="text" class="form-control" id="userCreation">
+            </div>
+        </div>
+        <div class="col">
+            <div class="mb-3">
+                <label for="creationDate" class="form-label">Fecha de creación</label>
+                <input type="date" id="creationDate" name="trip-start" value="" min="1900-01-01" max="2018-12-31" ngModel>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="mb-3">
+                <label for="userModification" class="form-label">Usuario modificación</label>
+                <input type="text" class="form-control" id="userModification">
+            </div>
+        </div>
+        <div class="col">
+            <div class="mb-3">
+                <label for="modificationDate" class="form-label">Fecha de creación</label>
+                <input type="date" id="modificationDate" name="trip-start" value="" min="1900-01-01" max="2018-12-31">
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>

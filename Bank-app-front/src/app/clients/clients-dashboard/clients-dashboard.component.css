@@ -1,0 +1,11 @@
+.register{
+    float: right;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+app-list-clients{
+    display: flex;
+    justify-content: center;
+}
