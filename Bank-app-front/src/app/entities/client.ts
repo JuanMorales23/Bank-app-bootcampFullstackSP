@@ -7,9 +7,9 @@ export class Client {
     lastName: String;
     secondLastName: String;
     email: String;
-    birthDate: Date;
-    creationDate: Date;
+    birthDate: String;
+    creationDate: String;
     userCreation: String;
-    modificationDate: Date;
+    modificationDate: String;
     userModification: String;
 }

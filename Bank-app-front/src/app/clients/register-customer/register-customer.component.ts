@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Client } from 'src/app/entities/client';
 import { ClientService } from 'src/app/services/client/client.service';
-import { FormControl } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-register-customer',
@@ -11,17 +11,22 @@ import { FormControl } from '@angular/forms';
 })
 export class RegisterCustomerComponent{
   client: Client = new Client();
-  date = new FormControl(new Date());
-  serializedDate = new FormControl(new Date().toISOString());
-
+  birthDateValue: Date;
+  currentDate: Date;
   constructor(private clientService: ClientService, private router: Router){}
 
   ngOnInit(): void{
-    console.log(this.date.value)
+    this.currentDate = new Date();
+    console.log(this.currentDate.toISOString().substring(0, 10))
   }
 
-  onSubmit(): void{
+  onSubmit(f: any): void{
+    this.client.creationDate = this.currentDate.toISOString().substring(0, 10);
+    this.client.modificationDate = this.client.creationDate;
+    this.client.birthDate = this.birthDateValue.toISOString().substring(0, 10);
+    this.client.userModification = this.client.userCreation;
     this.createClient();
+    console.log(this.client)
   }
 
   createClient(): void{
