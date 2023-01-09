@@ -1,7 +1,7 @@
 <form (ngSubmit)="onSubmit()">
     <div class="mb-3">
         <label for="idType" class="form-label">Tipo de documento</label>
-        <select class="form-select" aria-label="Default select example">
+        <select class="form-select" aria-label="Default select example" name="idType" [(ngModel)]="client.idType">
             <option selected>Seleccione su tipo de documento</option>
             <option value="RC">Registro civil de nacimiento</option>
             <option value="TI">Tarjeta de identidad </option>
@@ -14,19 +14,20 @@
     </div>
     <div class="mb-3">
         <label for="idNumber" class="form-label">Número de identificación</label>
-        <input type="Number" class="form-control" id="idNumber">
+        <input type="Number" class="form-control" id="idNumber" name="idNumber" [(ngModel)]="client.idNumber">
     </div>
     <div class="row">
         <div class="col">
             <div class="mb-3">
                 <label for="firstName" class="form-label">Primer nombre</label>
-                <input type="text" class="form-control" id="firstName">
+                <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="client.firstName">
             </div>
         </div>
         <div class="col">
             <div class="mb-3">
                 <label for="middleName" class="form-label">Segundo nombre</label>
-                <input type="text" class="form-control" id="middleName" >
+                <input type="text" class="form-control" id="middleName" name="middleName"
+                    [(ngModel)]="client.middleName">
             </div>
         </div>
     </div>
@@ -34,51 +35,46 @@
         <div class="col">
             <div class="mb-3">
                 <label for="lastName" class="form-label">Primer apellido</label>
-                <input type="text" class="form-control" id="lastName" >
+                <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="client.lastName">
             </div>
         </div>
         <div class="col">
             <div class="mb-3">
                 <label for="secondLastName" class="form-label">Segundo apellido</label>
-                <input type="text" class="form-control" id="secondLastName">
+                <input type="text" class="form-control" id="secondLastName" name="seconLastName"
+                    [(ngModel)]="client.secondLastName">
             </div>
         </div>
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Correo electrónico</label>
-        <input type="email" class="form-control" id="email" >
+        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="client.email">
     </div>
     <div class="mb-3">
-        <label for="birthDate" class="form-label">Fecha de nacimiento</label>
-        <input type="date" id="birthDate" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+        <div class="col col-5">
+            <label for="birthDate" class="form-label">Fecha de nacimiento</label>
+            <input matInput [matDatepicker]="birthDate" class="form-control mat-datepicker-content" name="birthDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="birthDate"></mat-datepicker-toggle>
+            <mat-datepicker #birthDate></mat-datepicker>
+        </div>
     </div>
     <div class="row">
         <div class="col">
             <div class="mb-3">
                 <label for="userCreation" class="form-label">Usuario creación</label>
-                <input type="text" class="form-control" id="userCreation">
+                <input type="text" class="form-control" id="userCreation" name="userCreation"
+                    [(ngModel)]="client.userCreation">
             </div>
         </div>
         <div class="col">
             <div class="mb-3">
-                <label for="creationDate" class="form-label">Fecha de creación</label>
-                <input type="date" id="creationDate" name="trip-start" value="" min="1900-01-01" max="2018-12-31" ngModel>
+                <label for="creationDate" class="form-label">Fecha de nacimiento</label>
+                <input matInput [matDatepicker]="picker3" [value]="date.value"
+                class="form-control" name="creationDate" disabled>
+                <mat-datepicker #picker3></mat-datepicker>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <div class="mb-3">
-                <label for="userModification" class="form-label">Usuario modificación</label>
-                <input type="text" class="form-control" id="userModification">
-            </div>
-        </div>
-        <div class="col">
-            <div class="mb-3">
-                <label for="modificationDate" class="form-label">Fecha de creación</label>
-                <input type="date" id="modificationDate" name="trip-start" value="" min="1900-01-01" max="2018-12-31">
-            </div>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Registrar</button>
+    <button type="submit" class="btn btn-primary modal-close">Registrar</button>
 </form>
