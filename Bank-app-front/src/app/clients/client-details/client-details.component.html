@@ -57,7 +57,7 @@
                 <div class="col col-5">
                     <label for="birthDate" class="form-label">Fecha de nacimiento</label>
                     <input matInput [matDatepicker]="birthDate" class="form-control" name="birthDate"
-                    [(ngModel)]="birthDateValue">
+                    [(ngModel)]="client.birthDate">
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="birthDate"></mat-datepicker-toggle>
                     <mat-datepicker #birthDate></mat-datepicker>
@@ -68,19 +68,52 @@
                     <div class="mb-3">
                         <label for="userCreation" class="form-label">Usuario creación</label>
                         <input type="text" class="form-control" id="userCreation" name="userCreation"
-                            [(ngModel)]="client.userCreation">
+                            [(ngModel)]="client.userCreation" disabled>
                     </div>
                 </div>
                 <div class="col">
                     <div class="mb-3">
                         <label for="creationDate" class="form-label">Fecha de creación</label>
-                        <input type="text" matInput [matDatepicker]="picker3" 
-                        class="form-control" name="creationDate" [(ngModel)]="currentDate" disabled>
-                        <mat-datepicker #picker3></mat-datepicker>
+                        <input type="text" matInput [matDatepicker]="creationDate" 
+                        class="form-control" name="creationDate" [(ngModel)]="client.creationDate" disabled>
+                        <mat-datepicker #creationDate></mat-datepicker>
                     </div>
                 </div>
             </div>
-            <button id="submit" type="submit" class="btn btn-primary">Registrar</button>
+            <div class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="userModification" class="form-label">Usuario modificación</label>
+                        <input type="text" class="form-control" id="userModification" name="userModification"
+                            [(ngModel)]="client.userModification">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="modificationDate" class="form-label">Fecha de creación</label>
+                        <input type="text" matInput [matDatepicker]="modificationDate" 
+                        class="form-control" name="modificationDate" [(ngModel)]="currentDate" disabled>
+                        <mat-datepicker #modificationDate></mat-datepicker>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button id="update" (click)="modifyClient()" type="button" class="btn btn-warning">Actualizar</button>
+                </div>
+                <div class="col">
+                    <button id="delete"  type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <button id="back" (click)="goBack()" type="button" class="btn btn-primary">Regresar</button>
+                </div>
+                <div class="col" *ngIf="edit">
+                    <button id="save" (click)="saveClient()" type="button" class="btn btn-success">Guardar</button>
+                </div>
+            </div>
+            <app-alert-modal (optionSelected)="receiveOption($event)" [title]="title[0]" [message]="message[0]"></app-alert-modal>
         </form>
     </div>
 </div>

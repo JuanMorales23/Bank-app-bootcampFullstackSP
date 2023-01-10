@@ -26,8 +26,7 @@ export class RegisterCustomerComponent{
     this.client.birthDate = this.birthDateValue.toISOString().substring(0, 10);
     this.client.userModification = this.client.userCreation;
     this.createClient();
-    this.router.navigate(["/clients"])
-    console.log(this.client)
+    this.router.navigate(["clients"])
   }
 
   createClient(): void{

@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { AlertModalComponent } from './alert-modal/alert-modal.component';
 
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AlertModalComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports:[
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AlertModalComponent
   ]
 })
 export class SharedModule { }

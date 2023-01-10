@@ -10,3 +10,9 @@ app-list-clients{
     justify-content: center;
 }
 
+h1{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+

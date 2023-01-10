@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ClientDetailsComponent } from './client-details/client-details.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ClientDetailsComponent } from './client-details/client-details.componen
     MatNativeDateModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    SharedModule
   ],
   exports: [
     ListClientsComponent,
