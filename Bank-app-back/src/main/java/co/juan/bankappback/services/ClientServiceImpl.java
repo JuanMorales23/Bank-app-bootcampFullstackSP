@@ -18,7 +18,7 @@ public class ClientServiceImpl implements ClientService{
 
     @Override
     public Boolean createClient(Client client) {
-        LocalDate currentDate = LocalDate.now();
+        LocalDate currentDate = client.getCreationDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate birthDate = client.getBirthDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         Period age = Period.between(birthDate, currentDate);
         if(age.getYears()>18){
@@ -40,6 +40,11 @@ public class ClientServiceImpl implements ClientService{
     @Override
     public Optional<Client> findById(int id) {
         return clientRepository.findById(id);
+    }
+
+    @Override
+    public Optional<Client> findByIdNumber(int idNumber) {
+        return Optional.ofNullable(clientRepository.findByIdNumber(idNumber));
     }
 
     @Override

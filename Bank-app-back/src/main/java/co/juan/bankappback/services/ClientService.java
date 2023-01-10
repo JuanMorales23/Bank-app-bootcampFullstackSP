@@ -9,5 +9,6 @@ public interface ClientService {
     public Boolean createClient(Client client);
     public Boolean deleteClient(int id);
     public Optional<Client> findById(int id);
+    public Optional<Client> findByIdNumber(int idNumber);
     public List<Client> findAll();
 }

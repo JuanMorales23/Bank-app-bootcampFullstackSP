@@ -28,6 +28,10 @@ public class Client {
     @NotBlank
     private String lastName;
     @NotNull
+    @NotBlank
+    private String secondLastName;
+    @NotNull
+    @Column(unique = true)
     private String email;
     private Date birthDate;
     @NotNull

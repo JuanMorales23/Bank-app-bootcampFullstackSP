@@ -29,9 +29,9 @@ public class ClientController {
         return new ResponseEntity<>(clientService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Client> getClientById(@PathVariable Integer id){
-        return clientService.findById(id).map(client -> {
+    @GetMapping("/{idNumber}")
+    public ResponseEntity<Client> getClientByIdNumber(@PathVariable Integer idNumber){
+        return clientService.findByIdNumber(idNumber).map(client -> {
             return new ResponseEntity<>(client, HttpStatus.FOUND);
         }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
