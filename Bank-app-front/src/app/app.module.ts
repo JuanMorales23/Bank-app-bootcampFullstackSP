@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClientsModule } from './clients/clients.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeModule } from './home/home.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     SharedModule,
     ClientsModule,
+    HomeModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

@@ -16,7 +16,7 @@
                 <td>{{ client.firstName }}</td>
                 <td>{{ client.lastName }}</td>
                 <td>{{ client.email }}</td>
-                <td><button type="button" class="btn btn-primary">Detalles</button></td>
+                <td><button (click)="clientDetails(client.idNumber)" type="button" class="btn btn-primary">Detalles</button></td>
                 <td><button type="button" class="btn btn-info">Info</button></td>
             </tr>
         </tbody>

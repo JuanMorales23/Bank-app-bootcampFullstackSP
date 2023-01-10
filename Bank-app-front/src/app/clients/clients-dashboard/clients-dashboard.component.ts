@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./clients-dashboard.component.css']
 })
 export class ClientsDashboardComponent {
-
+  onSubmit(){
+    
+  }
 }

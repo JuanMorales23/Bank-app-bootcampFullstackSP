@@ -9,6 +9,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ClientDetailsComponent } from './client-details/client-details.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
     ListClientsComponent,
     ClientsDashboardComponent,
     RegisterCustomerComponent,
+    ClientDetailsComponent,
   ],
   imports: [
     CommonModule,

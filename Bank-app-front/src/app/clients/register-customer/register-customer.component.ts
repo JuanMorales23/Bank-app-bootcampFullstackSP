@@ -20,12 +20,13 @@ export class RegisterCustomerComponent{
     console.log(this.currentDate.toISOString().substring(0, 10))
   }
 
-  onSubmit(f: any): void{
+  onSubmit(): void{
     this.client.creationDate = this.currentDate.toISOString().substring(0, 10);
     this.client.modificationDate = this.client.creationDate;
     this.client.birthDate = this.birthDateValue.toISOString().substring(0, 10);
     this.client.userModification = this.client.userCreation;
     this.createClient();
+    this.router.navigate(["/clients"])
     console.log(this.client)
   }
 

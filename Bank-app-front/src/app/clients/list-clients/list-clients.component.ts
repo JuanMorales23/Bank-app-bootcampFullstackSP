@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Client } from 'src/app/entities/client';
 import { ClientService } from 'src/app/services/client/client.service';
 
@@ -10,7 +11,7 @@ import { ClientService } from 'src/app/services/client/client.service';
 export class ListClientsComponent {
   clients: Client[];
   
-  constructor(private clientService: ClientService){}
+  constructor(private clientService: ClientService, private router: Router){}
 
   ngOnInit(): void{
     this.findAllClients();
@@ -20,5 +21,9 @@ export class ListClientsComponent {
     this.clientService.findAllClients().subscribe(client => {
       this.clients = client;
     });
+  }
+
+  clientDetails(id: Number){
+    this.router.navigate(['client/details', id]);
   }
 }
