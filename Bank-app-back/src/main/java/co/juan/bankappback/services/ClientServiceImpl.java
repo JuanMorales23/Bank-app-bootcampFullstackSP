@@ -30,9 +30,9 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public Boolean deleteClient(int id) {
-        return findById(id).map(client -> {
-            clientRepository.deleteById(id);
+    public Boolean deleteClient(int idNumber) {
+        return findByIdNumber(idNumber).map(client -> {
+            clientRepository.deleteById(client.getId());
             return true;
         }).orElse(false);
     }
@@ -44,7 +44,7 @@ public class ClientServiceImpl implements ClientService{
 
     @Override
     public Optional<Client> findByIdNumber(int idNumber) {
-        return Optional.ofNullable(clientRepository.findByIdNumber(idNumber));
+        return clientRepository.findByIdNumber(idNumber);
     }
 
     @Override

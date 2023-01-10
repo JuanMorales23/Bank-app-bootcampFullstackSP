@@ -32,13 +32,13 @@ public class ClientController {
     @GetMapping("/{idNumber}")
     public ResponseEntity<Client> getClientByIdNumber(@PathVariable Integer idNumber){
         return clientService.findByIdNumber(idNumber).map(client -> {
-            return new ResponseEntity<>(client, HttpStatus.FOUND);
+            return new ResponseEntity<>(client, HttpStatus.OK);
         }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> deleteClient(@PathVariable Integer id){
-        if(clientService.deleteClient(id)){
+    @DeleteMapping("/{idNumber}")
+    public ResponseEntity<Boolean> deleteClient(@PathVariable Integer idNumber){
+        if(clientService.deleteClient(idNumber)){
             return new ResponseEntity<>(true, HttpStatus.OK);
         }else{
             return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
