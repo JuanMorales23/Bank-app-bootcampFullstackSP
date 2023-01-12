@@ -13,6 +13,7 @@ export class ClientDetailsComponent {
   client: Client;
   currentDate: Date;
   edit: Boolean;
+  disabled: Boolean;
   title: String[] = ['Eliminar usuario', 'Guardar cambios'];
   message: String[] = ['Está seguro que desea eliminar el usuario?', 'Está seguro que desea guardar los cambios?'];
   confirm: Boolean;
@@ -20,6 +21,7 @@ export class ClientDetailsComponent {
 
   ngOnInit(): void{
     this.edit = false;
+    this.disabled = true;
     this.confirm = false;
     this.currentDate = new Date();
     this.idNumber = this.route.snapshot.params['id'];
@@ -28,15 +30,17 @@ export class ClientDetailsComponent {
       this.client = client;
     })
     this.client.modificationDate = this.currentDate.toISOString().substring(0, 10);
-    console.log(this.edit)
   }
 
   onSubmit(){
-
+    this.saveClient();
+    this.disabled = !this.disabled;
+    this.edit = !this.edit;
   }
 
   modifyClient(): void{
-    this.edit = true;
+    this.edit = !this.edit;
+    this.disabled = !this.disabled;
   }
 
   deleteClient(): void{
@@ -52,11 +56,12 @@ export class ClientDetailsComponent {
   }
 
   saveClient(): void{
-
+    this.clientService.modifyClient(this.client.idNumber, this.client).subscribe(response => {
+      this.goBack();
+    });
   }
 
   receiveOption(event: Boolean){
-    console.log(this.confirm);
     this.confirm = event;
     this.deleteClient();
   }

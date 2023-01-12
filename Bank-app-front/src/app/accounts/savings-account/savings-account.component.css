@@ -1,0 +1,6 @@
+.savings-table{
+    max-height: 70%;
+    max-width: 60%;
+    display: flex !important;
+    justify-content: center !important;
+}

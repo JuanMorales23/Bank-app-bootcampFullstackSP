@@ -1,1 +1,38 @@
-<p>accounts-dashboard works!</p>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col d-flex justify-content-center">
+            <div class="card mb-3" style="width: 540px; height: 170px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="..." class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h1 class="card-title">Cuenta de ahorros</h1>
+                            <p class="card-text">Verifica las transacciones en las cuentas de ahorros</p>
+                            <a [routerLink]="['savings-account']" routerLinkActive="router-link-active" class="btn btn-primary" >Ingresar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col d-flex justify-content-center">
+            <div class="card mb-3" style="width: 540px; height: 170px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="..." class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h1 class="card-title">Cueta corriente</h1>
+                            <p class="card-text">Verifica las transaccciones en las cuentas corrientes</p>
+                            <a [routerLink]="['checking-account']" routerLinkActive="router-link-active" class="btn btn-primary" >Ingresar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

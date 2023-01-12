@@ -9,6 +9,7 @@ import { ClientsModule } from './clients/clients.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './home/home.module';
+import { AccountsModule } from './accounts/accounts.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { HomeModule } from './home/home.module';
     SharedModule,
     ClientsModule,
     HomeModule,
+    AccountsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

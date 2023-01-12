@@ -27,4 +27,8 @@ export class ClientService {
   deleteClientByIdNumber(idNumber: Number): Observable<Object>{
     return this.httpClient.delete<Object>(`${this.url}/${idNumber}`)
   }
+
+  modifyClient(idNumber: Number, client: Client): Observable<Boolean>{
+    return this.httpClient.put<Boolean>(`${this.url}/${idNumber}`, client);
+  }
 }

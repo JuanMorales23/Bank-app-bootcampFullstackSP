@@ -4,8 +4,8 @@
         <form (ngSubmit)="onSubmit()" novalidate>
             <div class="mb-3">
                 <label for="idType" class="form-label">Tipo de documento</label>
-                <select class="form-select" aria-label="idType" name="idType" [(ngModel)]="client.idType" [required]="true">
-                    <option selected>Seleccione su tipo de documento</option>
+                <select class="form-select" aria-label="idType" name="idType" [(ngModel)]="client.idType" [required]="true" disabled={{disabled}}>
+                    <option selected>Seleccione su tipo de documento</option>|
                     <option value="RC">Registro civil de nacimiento</option>
                     <option value="TI">Tarjeta de identidad </option>
                     <option value="CC">Cédula de ciudadanía</option>
@@ -17,20 +17,20 @@
             </div>
             <div class="mb-3">
                 <label for="idNumber" class="form-label">Número de identificación</label>
-                <input type="Number" class="form-control" id="idNumber" name="idNumber" [(ngModel)]="client.idNumber" required>
+                <input type="Number" class="form-control" id="idNumber" name="idNumber" [(ngModel)]="client.idNumber" disabled={{disabled}} required>
             </div>
             <div class="row">
                 <div class="col">
                     <div class="mb-3">
                         <label for="firstName" class="form-label">Primer nombre</label>
-                        <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="client.firstName" [required]="true">
+                        <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="client.firstName" disabled={{disabled}} [required]="true">
                     </div>
                 </div>
                 <div class="col">
                     <div class="mb-3">
                         <label for="middleName" class="form-label">Segundo nombre</label>
                         <input type="text" class="form-control" id="middleName" name="middleName"
-                            [(ngModel)]="client.middleName">
+                            [(ngModel)]="client.middleName" disabled={{disabled}}>
                     </div>
                 </div>
             </div>
@@ -38,26 +38,26 @@
                 <div class="col">
                     <div class="mb-3">
                         <label for="lastName" class="form-label">Primer apellido</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="client.lastName">
+                        <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="client.lastName" disabled={{disabled}}>
                     </div>
                 </div>
                 <div class="col">
                     <div class="mb-3">
                         <label for="secondLastName" class="form-label">Segundo apellido</label>
                         <input type="text" class="form-control" id="secondLastName" name="seconLastName"
-                            [(ngModel)]="client.secondLastName">
+                            [(ngModel)]="client.secondLastName" disabled={{disabled}}>
                     </div>
                 </div>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="client.email">
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="client.email" disabled={{disabled}}>
             </div>
             <div class="mb-3">
                 <div class="col col-5">
                     <label for="birthDate" class="form-label">Fecha de nacimiento</label>
                     <input matInput [matDatepicker]="birthDate" class="form-control" name="birthDate"
-                    [(ngModel)]="client.birthDate">
+                    [(ngModel)]="client.birthDate" disabled={{disabled}}>
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="birthDate"></mat-datepicker-toggle>
                     <mat-datepicker #birthDate></mat-datepicker>
@@ -85,12 +85,12 @@
                     <div class="mb-3">
                         <label for="userModification" class="form-label">Usuario modificación</label>
                         <input type="text" class="form-control" id="userModification" name="userModification"
-                            [(ngModel)]="client.userModification">
+                            [(ngModel)]="client.userModification" disabled={{disabled}}>
                     </div>
                 </div>
                 <div class="col">
                     <div class="mb-3">
-                        <label for="modificationDate" class="form-label">Fecha de creación</label>
+                        <label for="modificationDate" class="form-label">Fecha de modificación</label>
                         <input type="text" matInput [matDatepicker]="modificationDate" 
                         class="form-control" name="modificationDate" [(ngModel)]="currentDate" disabled>
                         <mat-datepicker #modificationDate></mat-datepicker>
@@ -110,7 +110,7 @@
                     <button id="back" (click)="goBack()" type="button" class="btn btn-primary">Regresar</button>
                 </div>
                 <div class="col" *ngIf="edit">
-                    <button id="save" (click)="saveClient()" type="button" class="btn btn-success">Guardar</button>
+                    <button id="save" type="submit" class="btn btn-success">Guardar</button>
                 </div>
             </div>
             <app-alert-modal (optionSelected)="receiveOption($event)" [title]="title[0]" [message]="message[0]"></app-alert-modal>

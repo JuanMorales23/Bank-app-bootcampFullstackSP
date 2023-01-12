@@ -17,7 +17,6 @@ export class RegisterCustomerComponent{
 
   ngOnInit(): void{
     this.currentDate = new Date();
-    console.log(this.currentDate.toISOString().substring(0, 10))
   }
 
   onSubmit(): void{
