@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/accounts/{type}")
+@RequestMapping("/accounts/")
 @CrossOrigin
 public class AccountController {
     @Autowired

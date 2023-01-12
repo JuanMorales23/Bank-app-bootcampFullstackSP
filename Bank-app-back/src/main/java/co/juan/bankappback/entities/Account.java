@@ -20,7 +20,7 @@ public class Account {
     @Column(unique = true)
     private Integer accountNumber;
     @NotNull
-    private String state;
+    private Boolean state;
     @NotNull
     private Double balance;
     @NotNull
@@ -28,6 +28,8 @@ public class Account {
     @NotNull
     @NotBlank
     private Boolean gmfExempt;
+    //@NotNull
+    //private Client owner;
     @NotNull
     @NotBlank
     private Date creationDate;

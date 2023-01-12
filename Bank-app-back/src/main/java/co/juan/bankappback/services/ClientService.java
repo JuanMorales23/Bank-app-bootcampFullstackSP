@@ -11,4 +11,5 @@ public interface ClientService {
     public Optional<Client> findById(int id);
     public Optional<Client> findByIdNumber(int idNumber);
     public List<Client> findAll();
+    public Boolean modifyClient(int idNumber, Client client);
 }

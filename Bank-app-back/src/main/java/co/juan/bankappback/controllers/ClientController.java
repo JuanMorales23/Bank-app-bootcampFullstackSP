@@ -44,4 +44,14 @@ public class ClientController {
             return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
         }
     }
+
+    @PutMapping("/{idNumber}")
+    public ResponseEntity<Boolean> modifyClient(@PathVariable Integer idNumber, @RequestBody Client client){
+        System.out.println("invocado");
+        if(clientService.modifyClient(idNumber, client)){
+            return new ResponseEntity<>(true, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
+        }
+    }
 }

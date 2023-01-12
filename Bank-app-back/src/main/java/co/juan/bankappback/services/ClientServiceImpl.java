@@ -51,4 +51,24 @@ public class ClientServiceImpl implements ClientService{
     public List<Client> findAll() {
         return clientRepository.findAll();
     }
+
+    @Override
+    public Boolean modifyClient(int idNumber, Client client) {
+        return clientRepository.findByIdNumber(idNumber).map(dbClient -> {
+            dbClient.setIdType(client.getIdType());
+            dbClient.setIdNumber(client.getIdNumber());
+            dbClient.setFirstName(client.getFirstName());
+            dbClient.setMiddleName(client.getMiddleName());
+            dbClient.setLastName(client.getLastName());
+            dbClient.setSecondLastName(client.getSecondLastName());
+            dbClient.setEmail(client.getEmail());
+            dbClient.setBirthDate(client.getBirthDate());
+            dbClient.setCreationDate(client.getCreationDate());
+            dbClient.setUserCreation(client.getUserCreation());
+            dbClient.setModificationDate(client.getModificationDate());
+            dbClient.setUserModification(client.getUserModification());
+            clientRepository.save(dbClient);
+            return true;
+        }).orElse(false);
+    }
 }
