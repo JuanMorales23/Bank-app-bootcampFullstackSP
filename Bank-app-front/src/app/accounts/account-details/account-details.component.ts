@@ -38,18 +38,19 @@ export class AccountDetailsComponent {
     this.accountService.findAccountByNumber(this.accountNumber).subscribe(account => {
       this.account = account;
       this.idOwner = account.idOwner;
+      this.getClient(account.idOwner);
     })
-    this.getClient()
   }
 
   onSubmit(){
 
   }
 
-  getClient(): void{
-    this.clientService.findClientById(this.idOwner).subscribe(client => {
+  getClient(idOwner: String): void{
+    this.clientService.findClientById(idOwner).subscribe(client => {
       this.client = client;
     })
+    console.log(this.client)
   }
   modifyAccount(){
 

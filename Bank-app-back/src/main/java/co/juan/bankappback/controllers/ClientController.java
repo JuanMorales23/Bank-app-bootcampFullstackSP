@@ -30,14 +30,14 @@ public class ClientController {
     }
 
     @GetMapping("/{idNumber}")
-    public ResponseEntity<Client> getClientByIdNumber(@PathVariable Integer idNumber){
+    public ResponseEntity<Client> getClientByIdNumber(@PathVariable String idNumber){
         return clientService.findByIdNumber(idNumber).map(client -> {
             return new ResponseEntity<>(client, HttpStatus.OK);
         }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @DeleteMapping("/{idNumber}")
-    public ResponseEntity<Boolean> deleteClient(@PathVariable Integer idNumber){
+    public ResponseEntity<Boolean> deleteClient(@PathVariable String idNumber){
         if(clientService.deleteClient(idNumber)){
             return new ResponseEntity<>(true, HttpStatus.OK);
         }else{
@@ -46,7 +46,7 @@ public class ClientController {
     }
 
     @PutMapping("/{idNumber}")
-    public ResponseEntity<Boolean> modifyClient(@PathVariable Integer idNumber, @RequestBody Client client){
+    public ResponseEntity<Boolean> modifyClient(@PathVariable String idNumber, @RequestBody Client client){
         System.out.println("invocado");
         if(clientService.modifyClient(idNumber, client)){
             return new ResponseEntity<>(true, HttpStatus.OK);

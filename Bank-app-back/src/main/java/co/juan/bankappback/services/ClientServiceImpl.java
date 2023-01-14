@@ -30,7 +30,7 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public Boolean deleteClient(int idNumber) {
+    public Boolean deleteClient(String idNumber) {
         return findByIdNumber(idNumber).map(client -> {
             clientRepository.deleteById(client.getId());
             return true;
@@ -43,7 +43,7 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public Optional<Client> findByIdNumber(int idNumber) {
+    public Optional<Client> findByIdNumber(String idNumber) {
         return clientRepository.findByIdNumber(idNumber);
     }
 
@@ -53,7 +53,7 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public Boolean modifyClient(int idNumber, Client client) {
+    public Boolean modifyClient(String idNumber, Client client) {
         return clientRepository.findByIdNumber(idNumber).map(dbClient -> {
             dbClient.setIdType(client.getIdType());
             dbClient.setIdNumber(client.getIdNumber());

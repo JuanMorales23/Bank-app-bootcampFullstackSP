@@ -1,12 +1,11 @@
 package co.juan.bankappback.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.util.Date;
-
 @Entity
 @Data
 @Table(name = "accounts")
@@ -18,7 +17,7 @@ public class Account {
     private String accountType;
     @NotNull
     @Column(unique = true)
-    private Integer accountNumber;
+    private String accountNumber;
     @NotNull
     private Boolean state;
     @NotNull
@@ -26,20 +25,16 @@ public class Account {
     @NotNull
     private Double availableBalance;
     @NotNull
-    @NotBlank
     private Boolean gmfExempt;
-    //@NotNull
-    //private Client owner;
     @NotNull
-    @NotBlank
+    @NotEmpty
+    private String idOwner;
+    @NotNull
     private Date creationDate;
     @NotNull
-    @NotBlank
     private String userCreation;
     @NotNull
-    @NotBlank
     private Date modificationDate;
     @NotNull
-    @NotBlank
     private String userModification;
 }

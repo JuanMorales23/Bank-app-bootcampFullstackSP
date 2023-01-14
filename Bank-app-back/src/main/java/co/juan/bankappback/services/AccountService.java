@@ -10,4 +10,6 @@ public interface AccountService {
     public Boolean deleteAccount(int id);
     public Optional<Account> findById(int id);
     public List<Account> findAll();
+    public Optional<Account> findByAccountNumber(String accountNumber);
+    public List<Account> findAllAccountsByType(String accountType);
 }

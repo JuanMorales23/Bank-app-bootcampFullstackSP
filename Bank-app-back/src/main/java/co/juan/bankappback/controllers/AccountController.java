@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/accounts/")
+@RequestMapping("/accounts")
 @CrossOrigin
 public class AccountController {
     @Autowired
     AccountService accountService;
 
     @PostMapping
-    public ResponseEntity<Account> createClient(@RequestBody Account client){
-        return new ResponseEntity<>(accountService.createAccount(client), HttpStatus.CREATED);
+    public ResponseEntity<Account> createAccount(@RequestBody Account account){
+        return new ResponseEntity<>(accountService.createAccount(account), HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -26,10 +26,20 @@ public class AccountController {
         return new ResponseEntity<>(accountService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Account> getClientById(@PathVariable Integer id){
-        return accountService.findById(id).map(client -> {
-            return new ResponseEntity<>(client, HttpStatus.FOUND);
+    @GetMapping("/cc")
+    public ResponseEntity<List<Account>> getAllCheckingAccounts(){
+        return new ResponseEntity<>(accountService.findAllAccountsByType("cc"), HttpStatus.OK);
+    }
+
+    @GetMapping("/ca")
+    public ResponseEntity<List<Account>> getAllSavingsAccounts(){
+        return new ResponseEntity<>(accountService.findAllAccountsByType("ca"), HttpStatus.OK);
+    }
+
+    @GetMapping("/{accountNumber}")
+    public ResponseEntity<Account> getAccountByAccountNumber(@PathVariable String accountNumber){
+        return accountService.findByAccountNumber(accountNumber).map(account -> {
+            return new ResponseEntity<>(account, HttpStatus.OK);
         }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 

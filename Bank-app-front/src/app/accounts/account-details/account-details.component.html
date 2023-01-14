@@ -4,8 +4,24 @@
         <form (ngSubmit)="onSubmit()" novalidate>
             
             <div class="mb-3">
-                <label for="accountNumber" class="form-label">Número de identificación</label>
-                <p id="accountNumber">{{account.idOwner}}</p>
+                <label for="clientIdNumber" class="form-label">Número de identificación</label>
+                <p id="clientIdNumber">{{client.idNumber}}</p>
+            </div>
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Nombre completo</label>
+                <p id="fullName">{{client.firstName}} {{client.middleName}} {{client.lastName}} {{client.secondLastName}}</p>
+            </div>
+            <div class="mb-3">
+                <label for="balance" class="form-label">Saldo</label>
+                <p id="balance">{{account.balance}}</p>
+            </div>
+            <div class="mb-3">
+                <label for="availableBalance" class="form-label">Saldo disponible</label>
+                <p id="availableBalance">{{account.availableBalance}}</p>
+            </div>
+            <div class="mb-3">
+                <label for="gmfExempt" class="form-label">Excento de GMF</label>
+                <p id="gmfExempt">{{account.gmfExempt ? "Excento" : "No excento"}}</p>
             </div>
             <div class="row">
                 <div class="col">
@@ -15,21 +31,8 @@
                             [(ngModel)]="account.userModification" disabled={{disabled}}>
                     </div>
                 </div>
-                <!--
-                <div class="col">
-                    <div class="mb-3">
-                        <label for="modificationDate" class="form-label">Fecha de modificación</label>
-                        <input type="text" matInput [matDatepicker]="modificationDate" 
-                        class="form-control" name="modificationDate" [(ngModel)]="currentDate" disabled>
-                        <mat-datepicker #modificationDate></mat-datepicker>
-                    </div>
-                </div>
-            -->
             </div>
             <div class="row">
-                <div class="col">
-                    <button id="update" (click)="modifyAccount()" type="button" class="btn btn-warning">Actualizar</button>
-                </div>
                 <div class="col">
                     <button id="delete"  type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>
                 </div>

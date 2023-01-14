@@ -2,11 +2,13 @@ package co.juan.bankappback.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,17 +20,14 @@ public class Client {
     @NotNull
     private String idType;
     @NotNull
-    @Column(unique = true)
-    private Integer idNumber;
+    @Column(unique = true, name = "id_number")
+    private String idNumber;
     @NotNull
-    @NotBlank
     private String firstName;
     private String middleName;
     @NotNull
-    @NotBlank
     private String lastName;
     @NotNull
-    @NotBlank
     private String secondLastName;
     @NotNull
     @Column(unique = true)
@@ -37,12 +36,10 @@ public class Client {
     @NotNull
     private Date creationDate;
     @NotNull
-    @NotBlank
     private String userCreation;
     @NotNull
     private Date modificationDate;
     @NotNull
-    @NotBlank
     private String userModification;
 
 }

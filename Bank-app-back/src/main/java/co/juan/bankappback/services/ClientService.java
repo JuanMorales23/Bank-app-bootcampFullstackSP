@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface ClientService {
     public Boolean createClient(Client client);
-    public Boolean deleteClient(int idNumber);
+    public Boolean deleteClient(String idNumber);
     public Optional<Client> findById(int id);
-    public Optional<Client> findByIdNumber(int idNumber);
+    public Optional<Client> findByIdNumber(String idNumber);
     public List<Client> findAll();
-    public Boolean modifyClient(int idNumber, Client client);
+    public Boolean modifyClient(String idNumber, Client client);
 }
