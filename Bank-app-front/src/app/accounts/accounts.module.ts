@@ -4,6 +4,10 @@ import { AccountsDashboardComponent } from './accounts-dashboard/accounts-dashbo
 import { CheckingAccountComponent } from './checking-account/checking-account.component';
 import { SavingsAccountComponent } from './savings-account/savings-account.component';
 import { RouterModule } from '@angular/router';
+import { AccountListComponent } from './account-list/account-list.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -11,11 +15,15 @@ import { RouterModule } from '@angular/router';
   declarations: [
     AccountsDashboardComponent,
     CheckingAccountComponent,
-    SavingsAccountComponent
+    SavingsAccountComponent,
+    AccountListComponent,
+    AccountDetailsComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    SharedModule
   ]
 })
 export class AccountsModule { }

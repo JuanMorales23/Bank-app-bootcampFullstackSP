@@ -20,7 +20,7 @@ export class ClientService {
     return this.httpClient.post(`${this.url}`, client);
   }
 
-  findClientById(idNumber: Number): Observable<Client>{
+  findClientById(idNumber: String): Observable<Client>{
     return this.httpClient.get<Client>(`${this.url}/${idNumber}`);
   }
 

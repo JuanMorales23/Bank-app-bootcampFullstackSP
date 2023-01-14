@@ -9,7 +9,7 @@ import { ClientService } from 'src/app/services/client/client.service';
   styleUrls: ['./client-details.component.css']
 })
 export class ClientDetailsComponent {
-  idNumber: number;
+  idNumber: String;
   client: Client;
   currentDate: Date;
   edit: Boolean;

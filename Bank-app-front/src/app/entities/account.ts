@@ -6,6 +6,7 @@ export class Account {
     balance: Number;
     availableBalance: Number;
     gmfExempt: Boolean;
+    idOwner: String;
     creationDate: String;
     userCreation: String;
     modificationDate: String;

@@ -3,21 +3,21 @@
         <thead>
             <tr>
                 <td>Id</td>
+                <td>Tipo de documento</td>
                 <td>Nombre</td>
                 <td>Apellido</td>
                 <td>email</td>
                 <td>Detalles cliente</td>
-                <td>Detalles Usuario</td>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let client of clients">
                 <td>{{ client.idNumber }}</td>
+                <td>{{ client.idType }}</td>
                 <td>{{ client.firstName }}</td>
                 <td>{{ client.lastName }}</td>
                 <td>{{ client.email }}</td>
                 <td><button (click)="clientDetails(client.idNumber)" type="button" class="btn btn-primary">Detalles</button></td>
-                <td><button type="button" class="btn btn-info">Info</button></td>
             </tr>
         </tbody>
     </table>
